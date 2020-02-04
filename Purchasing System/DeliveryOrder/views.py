@@ -19,7 +19,7 @@ from django.http.request import QueryDict
 from decimal import Decimal
 import random
 import datetime 
-
+#abc
 
 @login_required
 def deliveryorderform(request):
