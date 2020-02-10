@@ -22,10 +22,12 @@
             <div class="col">
                 <label class="labelpodetails fontlabel">Company Information</label>
               <textarea type="text" class="infobox" name="staff_info" readonly>{{staff.person_name}} &#13;&#10;{{staff.person_address}} &#13;&#10;{{staff.person_phone_number}}</textarea>
+                <input type="text" class="hideinfo" name="staff_id" value="{{staff.person_id}}">
             </div>
             <div class="col">
                 <label class="labelpodetails fontlabel">Vendor Information</label>
               <textarea type="text" class="infobox" name="vendor_info"  readonly>{{vendor_info.vendor_name}} &#13;&#10;{{vendor_info.vendor_address}} &#13;&#10;{{vendor_info.vendor_phone_number}}</textarea>
+                <input type="text" class="hideinfo" name="vendor_id" value="{{vendor_info.vendor_id}}">
             </div>
         </div>
         <div class="row margintop">
@@ -34,7 +36,7 @@
                <textarea class="form-control potextarea" name="shipping_inst" id="shipping_inst" placeholder="Shipping Instructions (If applicable)" readonly >{{shipping_inst}}</textarea>
             </div>
             <div class="col">
-                <label class="labelpodetails fontlabel">Description</label>
+                <label class="labelpodetails fontlabel">Purchase Order Description</label>
                 <textarea class="form-control potextarea" name="description" id="description" placeholder="Purchase Order Description (If applicable)" readonly>{{description}}</textarea>
             </div>
         </div>
