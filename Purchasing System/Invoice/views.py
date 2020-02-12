@@ -38,7 +38,7 @@ def fillinginvoice(request):
 
     global responsesItems
     context = {}
-    pur_id = request.GET['pur_id']
+    pur_id = request.GET['pur_id']123
     inv_id = random.randint(1000000,9999999)
     try: 
         purchase_orders = PurchaseOrder.objects.get(purchase_order_id = pur_id)
