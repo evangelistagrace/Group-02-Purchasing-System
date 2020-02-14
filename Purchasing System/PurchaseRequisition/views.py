@@ -23,8 +23,29 @@ import datetime
 
 @login_required
 def purchaserequisitionform(request):
+    randomID = random.randint(10000000,99999999)
     
-    pr_id = random.randint(10000000,99999999)
+    responses = request.read()
+
+    q = QueryDict(responses)
+
+    prs_id = q.getlist('pr_id')
+
+    prs_length = len(prs_id)
+
+    i = 0
+    j = 0
+
+    while i < prs_length and j < prs_length:
+        if prs_id[i] == randomID:
+            i = 0
+            randomID = random.randint(10000000,99999999)
+            j = j + 1
+
+        if j == prs_length - 1 and i != prs_length:
+            randomID = randomID * 10;
+
+    pr_id = randomID
     user_id = request.user.id
     person = Person.objects.get(user_id = user_id)
 
@@ -205,6 +226,7 @@ def purchaserequisitionhistorydetails(request):
             'staff_id' : purchase_requisition.person_id.person_id,
             'rows' : items,
             'staff_info' : purchase_requisition.person_id,
+            'total_price': purchase_requisition.total_price,
             'grand_total': purchase_requisition.total_price,
             'time_created': purchase_requisition.time_created,
             'description' : purchase_requisition.description
